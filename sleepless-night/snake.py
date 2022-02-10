@@ -26,7 +26,7 @@ keyboard.add_hotkey('left', lambda: change_route("l"))
 
 def gen_apple():
     global apple_xyz, snake_all, apples
-    while (not (apple_xyz in snake_all)) and apple_xyz == xyz:
+    while apple_xyz in snake_all or apple_xyz == xyz:
         apple_xyz = [random.randint(2, 13), random.randint(2, 13)]
     apples+=1
     codered[apple_xyz[0]][apple_xyz[1]] = apple
