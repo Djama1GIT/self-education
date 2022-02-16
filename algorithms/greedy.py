@@ -1,11 +1,9 @@
-sets = []
-for i in range(int(input())):
-    a, b = map(int, input().split())
-    sets.append([a, b])
-sorted_sets = sorted(sets, reverse=True)
+sets = [list(map(int, input().split())) for i in range(int(input()))]
 points = []
-for ps in sorted_sets:
+
+for ps in sorted(sets, reverse=True):
     if not points or ps[1] < points[-1]:
         points.append(ps[0])
+
 print(len(points))
 print(*points)
