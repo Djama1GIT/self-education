@@ -3,29 +3,15 @@ inversions = 0
 
 def merge(arr_a, arr_b):
     global inversions
-    len_a, len_b = len(arr_a), len(arr_b)
-    a, b = 0, 0
-    a2, b2 = 0, 0
-    arr_final = []
-    while a < len_a or b < len_b:
-        if arr_a[a] > arr_b[b]:
-            inversions += len_a - a
-            b += 1
-            if b == len_b:
-                break
+    len_a, len_b, arr_final = len(arr_a), len(arr_b), []
+    while arr_a and arr_b:
+        if arr_a[0] <= arr_b[0]:
+            arr_final += [arr_a.pop(0)]
         else:
-            a += 1
-            if a == len_a:
-                break
-    while len_a > a2 and len_b > b2:
-        if arr_a[a2] <= arr_b[b2]:
-            arr_final += [arr_a[a2]]
-            a2 += 1
-        else:
-            arr_final += [arr_b[b2]]
-            b2 += 1
+            arr_final += [arr_b.pop(0)]
+            inversions += len(arr_a)
     else:
-        return arr_final + (arr_a[a2:] if arr_a[a2:] else arr_b[b2:])
+        return arr_final + (arr_a if arr_a else arr_b)
 
 
 def mergesort(arr_a):
@@ -37,7 +23,6 @@ def mergesort(arr_a):
         return arr_a
 
 
-input()  # only for stepik
 arr = list(map(int, input().split()))
 
 mergesort(arr)
