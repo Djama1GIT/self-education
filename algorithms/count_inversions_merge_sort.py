@@ -3,7 +3,7 @@ inversions = 0
 
 def merge(arr_a, arr_b):
     global inversions
-    len_a, len_b, arr_final = len(arr_a), len(arr_b), []
+    arr_final = []
     while arr_a and arr_b:
         if arr_a[0] <= arr_b[0]:
             arr_final += [arr_a.pop(0)]
