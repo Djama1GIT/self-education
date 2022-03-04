@@ -3,7 +3,7 @@ def merge(arr_a, arr_b):
     while arr_a and arr_b:
         arr_final += [arr_a.pop(0)] if arr_a[0] <= arr_b[0] else [arr_b.pop(0)]
     else:
-        return arr_final + (arr_a if arr_a else arr_b)
+        return arr_final + (arr_a or arr_b)
 
 
 def mergesort(arr_a):
