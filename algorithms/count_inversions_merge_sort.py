@@ -11,7 +11,7 @@ def merge(arr_a, arr_b):
             arr_final += [arr_b.pop(0)]
             inversions += len(arr_a)
     else:
-        return arr_final + (arr_a if arr_a else arr_b)
+        return arr_final + (arr_a or arr_b)
 
 
 def mergesort(arr_a):
