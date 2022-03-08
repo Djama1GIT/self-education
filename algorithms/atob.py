@@ -8,10 +8,8 @@ for i in range(1, n + 1):
         if (k - 1) < n and D[i - 1] + 1 < D[k - 1]:
             D[k - 1] = D[i - 1] + 1
             previouses[k - 1] = i
-
 while n > 1:
     answer.append(previouses[n - 1])
     n = previouses[n - 1]
-
 print(D[-1])
 print(*list(reversed(answer)))
