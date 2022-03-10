@@ -44,7 +44,6 @@ def test2():
     a = LoggableList()
     a.append('msg 1')
     a.append('msg 2')
-    print(a)
     print('TEST #2 OK')
 
 
