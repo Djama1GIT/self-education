@@ -1,18 +1,21 @@
-n = int(input())
+info = dict({'global':[None]})
 
-parent = {"global": None}
-vs = {"global": set()}
 
-for _ in range(n):
-    t, fst, snd = input().split()
-    if t == "create":
-        parent[fst] = snd
-        vs[fst] = set()
-    elif t == "add":
-        vs[fst].add(snd)
-    else:  # t == get
-        while fst is not None:
-            if snd in vs[fst]:
-                break
-            fst = parent[fst]
-        print(fst)
+def create(namespace, parent):
+    info.update({namespace:[parent]})
+
+
+def add(namespace, var):
+    info[namespace].append(var)
+
+
+def get(namespace, var):
+    while namespace is not None and var not in info[namespace][1:]:
+        namespace = info[namespace][0]
+    print(namespace)
+
+
+operations = {'create': create, 'add': add, 'get': get}
+for i in range(int(input())):
+    inp = input().split()
+    operations[inp[0]](inp[1], inp[2])
