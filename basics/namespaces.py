@@ -1,8 +1,8 @@
-info = dict({'global':[None]})
+info = dict({'global': [None]})
 
 
 def create(namespace, parent):
-    info.update({namespace:[parent]})
+    info.update({namespace: [parent]})
 
 
 def add(namespace, var):
