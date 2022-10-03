@@ -1,6 +1,4 @@
 # Run in PowerShell
-# A lot of bugs, remake
-import threading
 import time
 import os
 import keyboard
@@ -101,4 +99,4 @@ def update():
 
 
 gen_apple()
-threading.Thread(target=update()).start()
+update()
