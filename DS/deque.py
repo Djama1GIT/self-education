@@ -41,3 +41,22 @@ import sys
 # data = list(map(int, input().split()))
 # lifo = data[:]
 # print(*[lifo.pop() for i in range(2)])
+
+from collections import deque
+
+
+def get_flat_data(data: [...]):
+    st = deque([data])
+    res = []
+    while st:
+        for x in st.popleft():
+            if type(x) == list:
+                st.append(x)
+            else:
+                res.append(x)
+    return res
+
+
+data = [[1, 2, [3, 4], 5], 0, 100, [4, 5]]
+res = get_flat_data(data)
+print(res)
